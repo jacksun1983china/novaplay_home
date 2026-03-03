@@ -1,0 +1,19 @@
+# Node.js
+node_modules/
+.pnpm-store/
+dist/
+.vite/
+
+# PHP
+api/runtime/
+api/public/uploads/
+*.log
+
+# Environment
+.env
+.env.local
+.env.production
+
+# OS
+.DS_Store
+Thumbs.db

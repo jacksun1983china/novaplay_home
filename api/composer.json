@@ -1,0 +1,27 @@
+{
+    "name": "novaplay/api",
+    "description": "NovaPlay Gaming Platform API - ThinkPHP 5.1",
+    "type": "project",
+    "keywords": ["novaplay", "thinkphp", "api"],
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^7.4",
+        "topthink/framework": "5.1.*",
+        "firebase/php-jwt": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "application"
+        }
+    },
+    "extra": {
+        "think-path": "thinkphp"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "topthink/think-installer": true
+        }
+    },
+    "minimum-stability": "stable"
+}
