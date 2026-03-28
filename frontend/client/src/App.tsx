@@ -11,6 +11,8 @@ import GamesListPage from "./pages/GamesListPage";
 import GameDetailPage from "./pages/GameDetailPage";
 import HallsPage from "./pages/HallsPage";
 import HallDetailPage from "./pages/HallDetailPage";
+import TurnkeyPage from "./pages/TurnkeyPage";
+import FaqPage from "./pages/FaqPage";
 
 function Router() {
   return (
@@ -20,6 +22,8 @@ function Router() {
       <Route path="/games/:slug" component={GameDetailPage} />
       <Route path="/halls" component={HallsPage} />
       <Route path="/halls/:slug" component={HallDetailPage} />
+      <Route path="/turnkey" component={TurnkeyPage} />
+      <Route path="/faq" component={FaqPage} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

@@ -30,6 +30,13 @@
     // 多语言翻译
     \Route::get('translations/:lang',  'api/Translation/index');
 
+    // 包网平台
+    \Route::get('turnkey',             'api/Turnkey/index');
+    \Route::get('turnkey/plans',       'api/Turnkey/plans');
+
+    // FAQ
+    \Route::get('faqs',               'api/Faq/index');
+
     // 提交询盘
     \Route::post('inquiry',            'api/Inquiry/submit');
 

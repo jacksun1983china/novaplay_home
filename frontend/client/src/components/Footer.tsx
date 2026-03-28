@@ -8,39 +8,66 @@ export default function Footer() {
   const { t: l } = useLanguage();
   const { config } = useSiteData();
   const logoUrl = config?.logo_url || LOGO_URL;
+  const [location, setLocation] = useLocation();
   const r = [
       {
         label: l.nav_home,
         href: "#hero",
+        type: "anchor" as const,
       },
       {
         label: l.nav_showcase,
         href: "#showcase",
+        type: "anchor" as const,
       },
       {
         label: l.nav_about,
         href: "#about",
+        type: "anchor" as const,
       },
       {
         label: l.nav_partnership,
         href: "#partnership",
+        type: "anchor" as const,
       },
       {
         label: l.nav_customdev,
         href: "#custom",
+        type: "anchor" as const,
+      },
+      {
+        label: l.nav_turnkey,
+        href: "/turnkey",
+        type: "route" as const,
+      },
+      {
+        label: l.nav_faq,
+        href: "/faq",
+        type: "route" as const,
       },
       {
         label: l.nav_contact,
         href: "#contact",
+        type: "anchor" as const,
       },
     ];
-  const u = (m: string) => {
-      const f = document.querySelector(m);
-      f &&
-        f.scrollIntoView({
-          behavior: "smooth",
-        });
-    };
+  const handleNav = (item: { href: string; type: string }) => {
+    if (item.type === "route") {
+      setLocation(item.href);
+      window.scrollTo(0, 0);
+    } else {
+      if (location !== "/") {
+        setLocation("/");
+        setTimeout(() => {
+          const el = document.querySelector(item.href);
+          el && el.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+      } else {
+        const el = document.querySelector(item.href);
+        el && el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
   return (
     <footer
       className="relative border-t border-[#C9A227]/15"
@@ -88,11 +115,11 @@ export default function Footer() {
                   }
                   {
                     <ul className="space-y-2">
-                      {r.map(m => (
-                        <li>
+                      {r.map((m, i) => (
+                        <li key={i}>
                           {
                             <button
-                              onClick={() => u(m.href)}
+                              onClick={() => handleNav(m)}
                               className="text-foreground/50 hover:text-[#F5D76E] text-sm transition-colors duration-200"
                               style={{
                                 fontFamily: "'Rajdhani', sans-serif",
