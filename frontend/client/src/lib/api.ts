@@ -3,14 +3,14 @@ import axios from 'axios'
 // 前台 API 基础 URL，从环境变量读取
 // 开发时设置 VITE_API_BASE_URL=http://localhost:8080/api
 // 生产时设置 VITE_API_BASE_URL=https://api.novaplaygaming.com/api
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://8080-ilzf9lcbrv3u7s6pubyod-6d19d16e.us2.manus.computer/api'
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
 
 // 静态资源基础 URL（去掉 /api 后缀）
 export const STATIC_BASE_URL = BASE_URL.replace(/\/api$/, '')
 
 /**
  * 将相对路径转为完整 URL
- * 例如：/uploads/halls/youme-lightning.jpg -> https://8080-.../uploads/halls/youme-lightning.jpg
+ * 例如：/uploads/halls/youme-lightning.jpg -> /uploads/halls/youme-lightning.jpg
  * 如果已经是完整 URL（http/https 开头），则直接返回
  */
 export function getImageUrl(path: string | null | undefined): string {

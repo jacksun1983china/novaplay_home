@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLanguage, languages } from "@/i18n/LanguageContext";
 import { ChevronDown } from "lucide-react";
+import "flag-icons/css/flag-icons.min.css";
 
 export default function LanguageSwitcher() {
   const { language: l, setLanguage: r } = useLanguage(),
@@ -56,13 +57,12 @@ export default function LanguageSwitcher() {
         >
           {
             <span
+              className={`fi fi-${h?.flagCode}`}
               style={{
                 fontSize: "16px",
                 lineHeight: 1,
               }}
-            >
-              {h?.flag}
-            </span>
+            />
           }
           {<span>{h?.nativeName}</span>}
           {
@@ -129,14 +129,13 @@ export default function LanguageSwitcher() {
               >
                 {
                   <span
+                    className={`fi fi-${y.flagCode}`}
                     style={{
                       fontSize: "18px",
                       lineHeight: 1,
                       flexShrink: 0,
                     }}
-                  >
-                    {y.flag}
-                  </span>
+                  />
                 }
                 {
                   <span
