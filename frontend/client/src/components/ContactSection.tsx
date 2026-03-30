@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { Mail, MessageCircle, Globe, Clock, Send } from "lucide-react";
+import { Mail, MessageCircle, Clock, Send } from "lucide-react";
 import { CONTACT_BG_URL } from "@/lib/data";
 import { useSiteData } from "@/contexts/SiteDataContext";
 import { inquiryApi } from "@/lib/api";
@@ -16,23 +16,23 @@ export default function ContactSection() {
       {
         icon: MessageCircle,
         label: "Telegram",
-        value: config?.contact_telegram || "@youmegames",
-        href: config?.contact_telegram ? `https://t.me/${config.contact_telegram.replace('@','')}` : "https://t.me/youmegames",
+        value: "@youmegames",
+        href: "https://t.me/youmegames",
+        desc: l.contact_tg_desc,
+      },
+      {
+        icon: MessageCircle,
+        label: "Telegram",
+        value: "@sophiamiller999",
+        href: "https://t.me/sophiamiller999",
         desc: l.contact_tg_desc,
       },
       {
         icon: Mail,
         label: "Email",
-        value: config?.contact_email || "novaplaygaming888@gmail.com",
-        href: config?.contact_email ? `mailto:${config.contact_email}` : "mailto:novaplaygaming888@gmail.com",
+        value: "novaplaygaming999@gmail.com",
+        href: "mailto:novaplaygaming999@gmail.com",
         desc: l.contact_email_desc,
-      },
-      {
-        icon: Globe,
-        label: "Website",
-        value: config?.contact_whatsapp || "www.novaplaygaming.com",
-        href: config?.contact_whatsapp || "https://www.novaplaygaming.com",
-        desc: l.contact_web_desc,
       },
       {
         icon: Clock,

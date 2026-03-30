@@ -122,8 +122,8 @@ const faqData: FaqItem[] = [
     category: "partnership",
     question_en: "How do I get started?",
     question_zh: "如何开始合作？",
-    answer_en: "Simply contact us via Telegram (@youmegames) or email (novaplaygaming888@gmail.com). Our team will schedule a consultation to understand your needs, recommend the best plan, and guide you through the entire setup process.",
-    answer_zh: "只需通过 Telegram（@youmegames）或邮件（novaplaygaming888@gmail.com）联系我们。我们的团队将安排咨询，了解您的需求，推荐最佳方案，并指导您完成整个搭建流程。",
+    answer_en: "Simply contact us via Telegram (@youmegames / @sophiamiller999) or email (novaplaygaming999@gmail.com). Our team will schedule a consultation to understand your needs, recommend the best plan, and guide you through the entire setup process.",
+    answer_zh: "只需通过 Telegram（@youmegames / @sophiamiller999）或邮件（novaplaygaming999@gmail.com）联系我们。我们的团队将安排咨询，了解您的需求，推荐最佳方案，并指导您完成整个搭建流程。",
   },
   {
     category: "partnership",
