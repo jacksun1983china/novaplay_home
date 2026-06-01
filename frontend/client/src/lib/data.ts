@@ -241,7 +241,7 @@ export const halls: Hall[] = [
     description: "皇家永利 (Huang Jia Yong Li) is a premium Chinese-style gaming platform featuring a grand royal aesthetic. It showcases Mahjong Ways, Fortune Rabbit, Dragon Tiger Luck, and a multi-Jackpot display, delivering an authentic and immersive experience for Chinese-speaking players.",
     image: "/uploads/halls/royal-yongli.webp",
     screenshots: ["/uploads/halls/screenshots/royal-yongli-1.webp", "/uploads/halls/screenshots/royal-yongli-2.webp", "/uploads/halls/screenshots/royal-yongli-3.webp"],
-    url: "https://hjyl888.one/",
+    url: "https://hjyl.youmegame.com/",
     tags: ["Mahjong", "Jackpot", "Classic", "Casino"],
     features: ["Royal Chinese visual theme", "Multi-Jackpot live display", "Mahjong Ways collection", "Fortune Rabbit & Dragon Tiger", "Localized Chinese interface", "CDKey exchange system"],
   },
