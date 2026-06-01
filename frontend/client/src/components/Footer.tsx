@@ -153,7 +153,7 @@ export default function Footer() {
                         fontFamily: "'Rajdhani', sans-serif",
                       }}
                     >
-                      {<p>Telegram: @youmegames / @sophiamiller999</p>}
+                      {<p>Telegram: @youmegames / @novaplayjames</p>}
                       {<p>Email: novaplaygaming999@gmail.com</p>}
                       {<p>{l.contact_support}: 24 / 7</p>}
                     </div>

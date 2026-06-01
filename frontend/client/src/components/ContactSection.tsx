@@ -23,8 +23,8 @@ export default function ContactSection() {
       {
         icon: MessageCircle,
         label: "Telegram",
-        value: "@sophiamiller999",
-        href: "https://t.me/sophiamiller999",
+        value: "@novaplayjames",
+        href: "https://t.me/novaplayjames",
         desc: l.contact_tg_desc,
       },
       {
