@@ -184,7 +184,7 @@ export default function Navbar() {
       }
       {
         <div
-          className={`lg:hidden transition-all duration-300 overflow-hidden nav-blur ${m ? "max-h-[500px] py-4" : "max-h-0"}`}
+          className={`lg:hidden transition-all duration-300 overflow-hidden ${m ? "max-h-[500px] py-4 bg-black/90 backdrop-blur-md" : "max-h-0"}`}
         >
           {
             <ul className="flex flex-col gap-1 px-4">
