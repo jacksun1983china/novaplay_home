@@ -238,11 +238,10 @@ export default function GamesListPage() {
                   style={{
                     transitionDelay: `${(g % 12) * 0.05}s`,
                   }}
-                  onClick={() => l(`/games/${S.slug}`)}
                 >
                   {
                     <div
-                      className="group relative flex flex-col items-center gap-3 p-4 rounded-2xl border border-[#C9A227]/12 hover:border-[#C9A227]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_oklch(0.72_0.14_82/0.2)] cursor-pointer"
+                      className="group relative flex flex-col items-center gap-3 p-4 rounded-2xl border border-[#C9A227]/12 hover:border-[#C9A227]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_oklch(0.72_0.14_82/0.15)]"
                       style={{
                         background: "oklch(0.11 0.008 60)",
                       }}
@@ -257,12 +256,12 @@ export default function GamesListPage() {
                         />
                       }
                       {
-                        <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-black/20">
+                        <div className="relative w-full rounded-xl overflow-hidden bg-black/20">
                           {
                             <img
                               src={S.iconUrl}
                               alt={S.name}
-                              className="w-full h-full object-cover transition-transform duration-350 group-hover:scale-105"
+                              className="w-full h-auto object-contain transition-transform duration-350 group-hover:scale-105"
                               loading="lazy"
                             />
                           }

@@ -5,18 +5,17 @@ import { gameCategoryStyles } from "@/lib/data";
 import { useSiteData } from "@/contexts/SiteDataContext";
 import { ArrowRight } from "lucide-react";
 
-function GameCard({ game: l, index: r, parentVisible: u, onNavigate: m }) {
+function GameCard({ game: l, index: r, parentVisible: u }) {
   return (
     <div
       className={`fade-in-up ${u ? "visible" : ""}`}
       style={{
         transitionDelay: `${(r % 8) * 0.07}s`,
       }}
-      onClick={() => m(l.slug)}
     >
       {
         <div
-          className="group relative flex flex-col items-center gap-3 p-4 rounded-2xl border border-[#C9A227]/12 hover:border-[#C9A227]/50 transition-all duration-350 hover:-translate-y-2 hover:shadow-[0_12px_40px_oklch(0.72_0.14_82/0.2)] cursor-pointer"
+          className="group relative flex flex-col items-center gap-3 p-4 rounded-2xl border border-[#C9A227]/12 hover:border-[#C9A227]/50 transition-all duration-350 hover:-translate-y-1 hover:shadow-[0_8px_30px_oklch(0.72_0.14_82/0.15)]"
           style={{
             background: "oklch(0.11 0.008 60)",
           }}
@@ -31,21 +30,13 @@ function GameCard({ game: l, index: r, parentVisible: u, onNavigate: m }) {
             />
           }
           {
-            <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-black/20">
+            <div className="relative w-full rounded-xl overflow-hidden bg-black/20">
               {
                 <img
                   src={l.iconUrl}
                   alt={l.name}
-                  className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-110"
+                  className="w-full h-auto object-contain transition-transform duration-400 group-hover:scale-105"
                   loading="lazy"
-                />
-              }
-              {
-                <div
-                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-350"
-                  style={{
-                    boxShadow: "inset 0 0 20px oklch(0.72 0.14 82 / 0.15)",
-                  }}
                 />
               }
             </div>
@@ -60,16 +51,6 @@ function GameCard({ game: l, index: r, parentVisible: u, onNavigate: m }) {
             >
               {l.name}
             </p>
-          }
-          {
-            <span
-              className={`text-[10px] px-2 py-0.5 rounded-full border font-semibold tracking-wider ${gameCategoryStyles[l.category] ?? gameCategoryStyles.Slot}`}
-              style={{
-                fontFamily: "'Rajdhani', sans-serif",
-              }}
-            >
-              {l.category === "CardGames" ? "Card Games" : l.category}
-            </span>
           }
         </div>
       }
@@ -187,10 +168,10 @@ export default function GamesSection() {
               >
                 {games.map((w: any, x: number) => (
                   <GameCard
+                    key={w.id}
                     game={w}
                     index={x}
                     parentVisible={_}
-                    onNavigate={S => r(`/games/${S}`)}
                   />
                 ))}
               </div>
