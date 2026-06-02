@@ -302,100 +302,18 @@ export function SiteDataProvider({ children }: { children: ReactNode }) {
     setLoading(true);
     setError(null);
 
-    let apiSuccess = false;
-
-    try {
-      const [configRes, hallsRes, gamesRes, partnershipsRes, servicesRes] =
-        await Promise.allSettled([
-          configApi.getAll(),
-          hallApi.list({ limit: 100 }),
-          gameApi.list({ limit: 100 }),
-          partnershipApi.list(),
-          serviceApi.list(),
-        ]);
-
-      // Config
-      if (configRes.status === "fulfilled" && configRes.value.data.code === 200) {
-        setConfig(transformConfig(configRes.value.data.data));
-        apiSuccess = true;
-      }
-
-      // Halls
-      if (hallsRes.status === "fulfilled" && hallsRes.value.data.code === 200) {
-        const data = hallsRes.value.data.data;
-        const rawList: any[] = Array.isArray(data) ? data : data?.list || [];
-        rawList.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
-        const hallList: Hall[] = rawList.map(transformHall);
-        if (hallList.length > 0) {
-          setHalls(hallList);
-          apiSuccess = true;
-          const translations: Record<string, any> = {};
-          hallList.forEach((h) => {
-            if (h.translations) {
-              translations[h.slug] = h.translations;
-            }
-          });
-          setHallTranslations(translations);
-        }
-      }
-
-      // Games
-      if (gamesRes.status === "fulfilled" && gamesRes.value.data.code === 200) {
-        const data = gamesRes.value.data.data;
-        const rawList: any[] = Array.isArray(data) ? data : data?.list || [];
-        rawList.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
-        const gameList = rawList.map(transformGame);
-        if (gameList.length > 0) {
-          setGames(gameList);
-          apiSuccess = true;
-        }
-      }
-
-      // Partnerships
-      if (
-        partnershipsRes.status === "fulfilled" &&
-        partnershipsRes.value.data.code === 200
-      ) {
-        const data = partnershipsRes.value.data.data;
-        const rawList: any[] = Array.isArray(data) ? data : data?.list || [];
-        if (rawList.length > 0) {
-          setPartnerships(rawList.map(transformPartnership));
-        }
-      }
-
-      // Services
-      if (
-        servicesRes.status === "fulfilled" &&
-        servicesRes.value.data.code === 200
-      ) {
-        const data = servicesRes.value.data.data;
-        const list = Array.isArray(data) ? data : data?.list || [];
-        if (list.length > 0) {
-          setServices(list);
-        }
-      }
-    } catch (e) {
-      console.warn("API request failed, using static fallback data");
-    }
-
-    // ============================================================
-    // Fallback: 如果 API 没有返回有效数据，使用 data.ts 中的静态数据
-    // ============================================================
-    setConfig((prev) => prev || defaultConfig);
-    setHalls((prev) => prev.length > 0 ? prev : (staticHalls as unknown as Hall[]));
-    setGames((prev) => prev.length > 0 ? prev : (staticGames as unknown as Game[]));
-    setPartnerships((prev) => prev.length > 0 ? prev : defaultPartnerships);
-    setServices((prev) => prev.length > 0 ? prev : defaultServices);
-    setHallTranslations((prev) =>
-      Object.keys(prev).length > 0 ? prev : staticHallTranslations
-    );
-
-    if (!apiSuccess) {
-      setError(null); // 使用静态数据时不显示错误
-    }
+    // 直接使用静态数据，不调用后端API（后端API未部署）
+    setConfig(defaultConfig);
+    setHalls(staticHalls as unknown as Hall[]);
+    setGames(staticGames as unknown as Game[]);
+    setPartnerships(defaultPartnerships);
+    setServices(defaultServices);
+    setHallTranslations(staticHallTranslations);
 
     setLoading(false);
   }, []);
+
+
 
   useEffect(() => {
     loadAll();
