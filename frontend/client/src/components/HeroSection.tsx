@@ -52,8 +52,9 @@ export default function HeroSection() {
           muted
           loop
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
-          poster={heroBg}
+          poster="/hero-poster.jpg"
         >
           <source src="/hero-bg-video.mp4" type="video/mp4" />
         </video>
