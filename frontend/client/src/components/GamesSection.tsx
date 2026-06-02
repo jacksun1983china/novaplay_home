@@ -15,7 +15,7 @@ function GameCard({ game: l, index: r, parentVisible: u }) {
     >
       {
         <div
-          className="group relative flex flex-col items-center gap-3 p-4 rounded-2xl border border-[#C9A227]/12 hover:border-[#C9A227]/50 transition-all duration-350 hover:-translate-y-1 hover:shadow-[0_8px_30px_oklch(0.72_0.14_82/0.15)]"
+          className="group relative flex flex-col items-center gap-2 p-3 rounded-2xl border border-[#C9A227]/12 hover:border-[#C9A227]/50 transition-all duration-350 hover:-translate-y-1 hover:shadow-[0_8px_30px_oklch(0.72_0.14_82/0.15)]"
           style={{
             background: "oklch(0.11 0.008 60)",
           }}
@@ -164,9 +164,9 @@ export default function GamesSection() {
             {
               <div
                 ref={m}
-                className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-5"
+                className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-5 md:gap-6"
               >
-                {games.map((w: any, x: number) => (
+                {games.slice(0, 18).map((w: any, x: number) => (
                   <GameCard
                     key={w.id}
                     game={w}
